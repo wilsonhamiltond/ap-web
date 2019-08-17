@@ -1,0 +1,46 @@
+﻿<h4>
+    <span class="text-muted">AUTHOR CREATE</span>
+</h4>
+<form #authorForm="ngForm" novalidate (ngSubmit)="save()" autocomplete="off">
+    <mat-card>
+        <mat-card-content>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field style="width: 100%">
+                                    <input matInput name="name" required [(ngModel)]="author.name" placeholder="Name" />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field style="width: 100%">
+                                    <input matInput name="email" required [(ngModel)]="author.email"
+                                        placeholder="EMail" />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-4">
+                                <mat-form-field style="width: 100%">
+                                    <input matInput name="date_birth" [matDatepicker]="datehpicker"
+                                        [(ngModel)]="author.date_birth" placeholder="Date of birth" disabled>
+                                    <mat-datepicker-toggle matSuffix [for]="datehpicker"></mat-datepicker-toggle>
+                                    <mat-datepicker #datehpicker disabled="false"></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button type="button" class="margin-right-xs" [routerLink]="['/author/list']" mat-raised-button
+                color="warn">
+                <mat-icon class="link">close</mat-icon> Cancelar
+            </button>
+            <button type="subbmit" [disabled]="!authorForm.valid" mat-raised-button color="primary">
+                Guardar
+                <mat-icon class="link">check</mat-icon>
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</form>

@@ -1,0 +1,11 @@
+﻿<div class="row">
+    <div class="col-md-4 order-md-2 mb-4">
+        <app-authors (author_change)="author_change($event)"></app-authors>
+    </div>
+    <div class="col-md-8 order-md-1">
+        <app-posts *ngIf="author" [author]="author"></app-posts>
+        <div *ngIf="!author" class="alert alert-info text-center">
+            Select a author to view your posts.
+        </div>
+    </div>
+</div>

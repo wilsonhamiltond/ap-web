@@ -1,0 +1,51 @@
+﻿<h4>
+    <span class="text-muted">POST CREATE FOR <span *ngIf="author">({{author.name}})</span></span>
+</h4>
+<form #authorForm="ngForm" novalidate (ngSubmit)="save()" autocomplete="off">
+    <mat-card>
+        <mat-card-content *ngIf="author">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <mat-form-field style="width: 100%">
+                                    <input matInput name="title" required [(ngModel)]="post.title" placeholder="Title" />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field style="width: 100%">
+                                    <input matInput name="date" [matDatepicker]="datehpicker"
+                                        [(ngModel)]="post.date" placeholder="Date" disabled>
+                                    <mat-datepicker-toggle matSuffix [for]="datehpicker"></mat-datepicker-toggle>
+                                    <mat-datepicker #datehpicker disabled="false"></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field style="width: 100%">
+                                    <input matInput type="time" name="time" required [(ngModel)]="post.time" placeholder="Time" />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-12">
+                                <mat-form-field style="width: 100%">
+                                    <input matInput name="body" required [(ngModel)]="post.body"
+                                        placeholder="Body" />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button type="button" class="margin-right-xs" [routerLink]="['/' + author.id +'/post/list']" mat-raised-button
+                color="warn">
+                <mat-icon class="link">close</mat-icon> Cancelar
+            </button>
+            <button type="subbmit" [disabled]="!authorForm.valid" mat-raised-button color="primary">
+                Guardar
+                <mat-icon class="link">check</mat-icon>
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</form>

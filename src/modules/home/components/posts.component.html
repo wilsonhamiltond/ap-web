@@ -1,0 +1,44 @@
+﻿<h4>
+    <span class="text-muted">Publications <span *ngIf="author">of {{author.name}}</span></span>
+</h4>
+<mat-card>
+    <mat-card-content>
+        <div class="row">
+            <div class="col-12">
+                <mat-form-field style="width: 100%">
+                    <input matInput type="search" [(ngModel)]="query" (keyup)="search($event)" placeholder='Type a text and press Enter' />
+                    <mat-icon matSuffix>search</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="col-12">
+                <table class="table" style="width: 100%">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Body</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let post of posts; let id = index">
+                            <td>{{post.title}}</td>
+                            <td>{{post.date | date:'MM/dd/yyy'}}</td>
+                            <td>{{post.time}}</td>
+                            <td>{{post.body}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4">
+                                <mat-paginator [length]="size" [pageSize]="10" [pageSizeOptions]="[10, 25, 50, 100]"
+                                    (page)="onPage($event)">
+                                </mat-paginator>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
