@@ -3,8 +3,6 @@ This is a app for adding and show author and her publications.
 
 ![screenshot](https://raw.github.com/wilsonhamiltond/ap-web/master/src/assets/screen-shot.png)
 
-[Try online demo!](https://ap-web.herokuapp.com/)
-
 ## Requirements
 - Angular 6+
 - Angular material 6+
