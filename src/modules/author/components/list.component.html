@@ -11,7 +11,8 @@
             </div>
             <div class="col-8">
                 <mat-form-field style="width: 100%">
-                    <input matInput type="search" [(ngModel)]="query" (keyup)="search($event)" placeholder='Type a text and press Enter' />
+                    <input matInput type="search" [(ngModel)]="query" (keyup)="search($event)"
+                        placeholder='Type a text and press Enter' />
                     <mat-icon matSuffix>search</mat-icon>
                 </mat-form-field>
             </div>
@@ -19,7 +20,14 @@
                 <table class="table" style="width: 100%">
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>Name
+                                <button mat-icon-button (click)="sort = 'asc'" *ngIf="sort == 'desc'">
+                                    <mat-icon>text_rotate_up</mat-icon>
+                                </button>
+                                <button mat-icon-button (click)="sort = 'desc'" *ngIf="sort == 'asc'">
+                                    <mat-icon>text_rotation_down</mat-icon>
+                                </button>
+                            </th>
                             <th>Email</th>
                             <th>Date of birth</th>
                             <th>Posts</th>
@@ -27,7 +35,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let author of authors">
+                        <tr *ngFor="let author of authors| sort:'name':sort">
                             <td>{{author.name}}</td>
                             <td>{{author.email}}</td>
                             <td>{{author.date_birth | date:'dd/MM/yyyy'}}</td>

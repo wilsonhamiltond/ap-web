@@ -13,6 +13,7 @@ export class PostListComponent implements OnInit {
   posts: IPost[] = [];
   public query: string = '';
   public size: number = 0;
+  sort: string = 'asc';
   public params: any = {
     skip: 0,
     limit: 10

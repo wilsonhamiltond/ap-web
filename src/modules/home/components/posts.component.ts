@@ -10,7 +10,7 @@ import { IPost } from 'src/models/post.model';
 export class PostsComponent implements OnInit {
   @Input('author')
   author: IAuthor;
-  
+  sort:string = 'asc';
   posts: IPost[] = [];
   public query: string = '';
   public size: number = 0;

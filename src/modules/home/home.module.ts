@@ -10,6 +10,7 @@ import { PostsComponent } from './components/posts.component';
 import { AuthorsComponent } from './components/authors.component';
 import { AuthorService } from 'src/services/author.service';
 import { HomeComponent } from './components/home.component';
+import { UtilsModule } from '../utils/utils.module';
 
 @NgModule({
     imports: [ 
@@ -25,7 +26,8 @@ import { HomeComponent } from './components/home.component';
         RouterModule,
         ReactiveFormsModule,
         MatDatepickerModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        UtilsModule
     ],
     providers: [ AuthorService ],
     declarations: [ 

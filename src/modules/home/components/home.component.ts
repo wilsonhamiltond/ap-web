@@ -15,7 +15,7 @@ export class HomeComponent{
     delete this.author;
     setTimeout(() =>{
       this.author = author;
-    }, 200)
+    }, 0)
   }
   
 }

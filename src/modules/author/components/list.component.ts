@@ -10,6 +10,7 @@ export class AuthorListComponent implements OnInit {
   authors: Array<IAuthor> = [];
   public query: string = '';
   public size: number = 0;
+  sort: string = 'asc';
   public params: any = {
     params: {},
     limit: 10,

@@ -9,6 +9,7 @@ import { AuthorRouting } from './author.route'
 import { AuthorListComponent } from './components/list.component';
 import { AuthorCreateComponent } from './components/create.component';
 import { AuthorService } from 'src/services/author.service';
+import { UtilsModule } from '../utils/utils.module';
 
 @NgModule({
     imports: [ 
@@ -24,7 +25,8 @@ import { AuthorService } from 'src/services/author.service';
         RouterModule,
         ReactiveFormsModule,
         MatDatepickerModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        UtilsModule
     ],
     providers: [ AuthorService ],
     declarations: [ 

@@ -11,7 +11,8 @@
             </div>
             <div class="col-8">
                 <mat-form-field style="width: 100%">
-                    <input matInput type="search" [(ngModel)]="query" (keyup)="search($event)" placeholder='Type a text and press Enter' />
+                    <input matInput type="search" [(ngModel)]="query" (keyup)="search($event)"
+                        placeholder='Type a text and press Enter' />
                     <mat-icon matSuffix>search</mat-icon>
                 </mat-form-field>
             </div>
@@ -20,14 +21,21 @@
                     <thead>
                         <tr>
                             <th>Title</th>
-                            <th>Date</th>
+                            <th>Date
+                                <button mat-icon-button (click)="sort = 'asc'" *ngIf="sort == 'desc'">
+                                    <mat-icon>text_rotate_up</mat-icon>
+                                </button>
+                                <button mat-icon-button (click)="sort = 'desc'" *ngIf="sort == 'asc'">
+                                    <mat-icon>text_rotation_down</mat-icon>
+                                </button>
+                            </th>
                             <th>Time</th>
                             <th>Body</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let post of posts; let id = index">
+                        <tr *ngFor="let post of posts| sort: 'date':sort; let id = index">
                             <td>{{post.title}}</td>
                             <td>{{post.date | date:'MM/dd/yyy'}}</td>
                             <td>{{post.time}}</td>
