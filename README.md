@@ -11,6 +11,12 @@ After downloading, run the following at the command line to run the app:
 ```bash
 npm install
 ```
+## Edit environments
+Modify environments files:
+- src/environments/environment.ts
+- src/environments/environment.prod.ts
+
+api_url: '{{API_URL}}'
 
 ### Start web server
 ```
